@@ -48,30 +48,30 @@ The architecture is likely driven by a common pattern for data fetching and disp
 
 ```mermaid
 graph TD
-    A[User/Scheduler Trigger] --> B{Application Logic};
+    A["User/Scheduler Trigger"] --> B{"Application Logic"};
 
     subgraph Data Acquisition
-        B --> C[Configure API Request];
-        C --> D[Make HTTP Request to Weather API];
-        D --> E{Receive Raw JSON/XML Data};
+        B --> C["Configure API Request"];
+        C --> D["Make HTTP Request to Weather API"];
+        D --> E{"Receive Raw JSON/XML Data"};
     end
 
     subgraph Data Processing
-        E --> F[Parse Raw Data];
-        F --> G[Validate & Clean Data];
-        G --> H[Transform to Standardized Format];
+        E --> F["Parse Raw Data"];
+        F --> G["Validate & Clean Data"];
+        G --> H["Transform to Standardized Format"];
     end
 
     subgraph Data Storage & Retrieval (Optional)
-        H --> I[Store Data (e.g., DB/Files)];
-        I --> J[Retrieve Data for Display];
+        H --> I["Store Data (e.g., DB/Files)"];
+        I --> J["Retrieve Data for Display"];
     end
 
     subgraph Presentation Layer
-        H -- If no Storage --> K[Prepare Data for Display];
+        H -- If no Storage --> K["Prepare Data for Display"];
         J -- If Storage --> K;
-        K --> L[Display/Output Weather Information];
-        L --> M[User Interface / Console / Report];
+        K --> L["Display/Output Weather Information"];
+        L --> M["User Interface / Console / Report"];
     end
 
     style A fill:#f9f,stroke:#333,stroke-width:2px;
